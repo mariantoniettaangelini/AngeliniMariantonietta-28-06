@@ -1,0 +1,36 @@
+﻿@model AngeliniMariantonietta.Article
+
+@{
+    ViewData["Title"] = "Crea Articolo";
+}
+
+<div class="container">
+    <h1 class="d-flex justify-content-center">Dettagli Articolo</h1>
+    <dl class="row">
+        <dt class="col-6">
+            Nome
+        </dt>
+        <dd>
+            @Model.Nome
+        </dd>
+
+        <dt class="col-6">
+            Prezzo
+        </dt>
+        <dd>
+            @Model.Prezzo
+        </dd>
+        
+        <dt class="col-6">
+            Descrizione
+        </dt>
+        <dd>
+            @Model.Descrizione
+        </dd>
+        <dd>
+            <img src="@Model.Copertina" style="width:200px; height:200px"
+        </dd>
+    </dl>
+    <hr />
+    <a asp-action="Article">Torna alla lista degli articoli</a>
+</div>

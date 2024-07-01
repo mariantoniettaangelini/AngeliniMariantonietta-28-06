@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Home\Articles.cshtml.cs" />
+    <Compile Remove="Views\Home\Articoli.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Articles.cshtml" />
+    <Content Remove="Views\Home\Articles.razor" />
+    <Content Remove="Views\Home\Articoli.cshtml" />
+  </ItemGroup>
+
+</Project>

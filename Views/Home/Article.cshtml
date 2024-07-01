@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AngeliniMariantonietta.Article>
+
+@{
+    ViewData["Title"] = "Articoli";
+}
+
+<div class="container mt-5">
+    @if (Model.Any())
+    {
+        <h1 class="d-flex justify-content-center">Articoli</h1>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Prezzo</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model)
+                {
+                    <tr>
+                        <td class="align-content-center">
+                            @Html.DisplayFor(modelItem => a.Nome)
+                        </td>
+                        <td class="align-content-center">
+                            @Html.DisplayFor(modelItem => a.Prezzo)€
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <form asp-controller="Home" asp-action="Delete" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@a.Id" />
+                                    <button class="btn btn-danger mx-2" type="submit">Elimina</button>
+                                </form>
+                                <a asp-controller="Home" asp-action="Dettagli" asp-route-id="@a.Id" class="btn btn-info rounded-2">
+                                    Dettagli
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            <a asp-controller="Home" asp-action="Crea" class="btn btn-primary d-flex justify-content-center">Crea un nuovo articolo</a>
+        </p>
+    }
+    else
+    {
+        <div class="text-center">
+            <p class="fs-2">Non c'è ancora nessun prodotto, ci spiace.</p>
+            <a class="btn btn-primary" asp-controller="Home" asp-action="Crea">Crea un nuovo articolo</a>
+        </div>
+    }
+</div>
